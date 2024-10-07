@@ -1,6 +1,8 @@
+using BasicStart.CustomMiddleware;
 using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<MyCustomMiddlewareClass>();
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
@@ -56,11 +58,9 @@ app.Use(async (HttpContext context, RequestDelegate next) =>
 
 
 //middleware2
-app.Use(async (HttpContext context,RequestDelegate next) =>
-{
-    await context.Response.WriteAsync("HelloWorld");
-    await next(context);
-});
+app.UseMiddleware<MyCustomMiddlewareClass>();
+
+
 //middleware3
 app.Use(async (HttpContext context, RequestDelegate next) =>
 {
