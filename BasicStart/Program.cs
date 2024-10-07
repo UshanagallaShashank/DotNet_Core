@@ -60,8 +60,13 @@ app.Use(async (HttpContext context, RequestDelegate next) =>
 //middleware2
 //app.UseMiddleware<MyCustomMiddlewareClass>();
 
-//custom middleware extension
-app.UseCustomMethod();
+////custom middleware extension
+
+//app.UseCustomMethod();
+
+//Conventional middleware
+
+app.UseMiddleware();
 
 
 //middleware3

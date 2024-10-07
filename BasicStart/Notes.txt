@@ -1,0 +1,5 @@
+Conventional middleware
+//https://localhost:7263/?firstName=shashank&LastName=ushanagalla
+
+A conventional middleware extension is like a helper that sits in the middle of two processes to handle tasks before passing something on.
+Think of it as a security guard at a building entrance who checks if you're allowed in and then either lets you through or stops you.
