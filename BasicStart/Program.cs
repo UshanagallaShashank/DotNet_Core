@@ -38,11 +38,36 @@ var app = builder.Build();
 //);
 
 
-//---------------Context----------------
-app.Run(async (HttpContext context) =>
+//---------------Run----------------
+//app.Run(async (HttpContext context) =>
+//{
+//    await context.Response.WriteAsync("Hello");
+//});
+
+//----------------MiddlewareChain--------------
+
+
+//middleware1
+app.Use(async (HttpContext context, RequestDelegate next) =>
 {
     await context.Response.WriteAsync("Hello");
+    await next(context);
 });
+
+
+//middleware2
+app.Use(async (HttpContext context,RequestDelegate next) =>
+{
+    await context.Response.WriteAsync("HelloWorld");
+    await next(context);
+});
+//middleware3
+app.Use(async (HttpContext context, RequestDelegate next) =>
+{
+    await context.Response.WriteAsync("HelloAgain");
+});
+
+
 
 
 app.Run();
