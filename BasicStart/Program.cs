@@ -61,12 +61,27 @@ app.Use(async (HttpContext context, RequestDelegate next) =>
 //app.UseMiddleware<MyCustomMiddlewareClass>();
 
 ////custom middleware extension
-
 //app.UseCustomMethod();
 
-//Conventional middleware
 
-app.UseMiddleware();
+//Conventional middleware
+//app.UseMiddleware();
+
+
+//UseWhen Middleware
+app.UseWhen(
+    context => context.Request.Query.ContainsKey("username"),
+    app =>
+    {
+        app.Use(async (context, next) =>
+        {
+            await context.Response.WriteAsync(" got the values  UseWhen");
+            await next();
+        });
+    });
+
+
+
 
 
 //middleware3

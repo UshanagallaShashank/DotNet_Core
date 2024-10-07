@@ -3,3 +3,20 @@ Conventional middleware
 
 A conventional middleware extension is like a helper that sits in the middle of two processes to handle tasks before passing something on.
 Think of it as a security guard at a building entrance who checks if you're allowed in and then either lets you through or stops you.
+
+
+
+//--------order of Middleware-------
+
+1  ExceptionHandler
+2  HSTS-Http strict transport security
+3  HttpsRedierection
+4  Static Files
+5  Routing
+6  CORS
+7  Authentication
+8  Authorization
+9  Customizable Middlewares
+10 UseSession
+11 MapControllers
+12 Run
