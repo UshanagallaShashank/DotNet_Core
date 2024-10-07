@@ -24,18 +24,25 @@ var app = builder.Build();
 
 
 //-----------------------Request Headers-------------------------
+//app.Run(async (HttpContext context) =>
+//{
+//    context.Response.Headers["Content-Type"] = "text/html";
+
+//    if (context.Request.Headers.ContainsKey("User-Agent"))
+//    {
+//        string userAgent = context.Request.Headers["User-Agent"];
+//        await context.Response.WriteAsync($"<p>{userAgent}</p>");
+//    }
+//}
+
+//);
+
+
+//---------------Context----------------
 app.Run(async (HttpContext context) =>
 {
-    context.Response.Headers["Content-Type"] = "text/html";
-  
-        if (context.Request.Headers.ContainsKey("User-Agent"))
-        {
-            string userAgent = context.Request.Headers["User-Agent"];
-            await context.Response.WriteAsync($"<p>{userAgent}</p>");
-        }
-    }
-
-);
+    await context.Response.WriteAsync("Hello");
+});
 
 
 app.Run();
