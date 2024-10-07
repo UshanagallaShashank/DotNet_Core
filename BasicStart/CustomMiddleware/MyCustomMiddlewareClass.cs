@@ -16,7 +16,7 @@ namespace BasicStart.CustomMiddleware
     {
         public static IApplicationBuilder UseCustomMethod(this IApplicationBuilder app)
         {
-            return app.UseMiddleware<CustomMiddleware>();
+            return app.UseMiddleware<MyCustomMiddlewareClass>();
         }
     }
 }
